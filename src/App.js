@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import './App.css'
+import Ajouter from './components/table/Ajouter'
+import Header from './components/Header/Header'
+import Main from './components/Main/Main'
+import Pagemodif from './components/table/pagemodif'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import Tableau from './components/table/Tableau'
+function App () {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path='/rel'  element={<Main />} />
+          <Route path='/Ajouter'  element={<Ajouter />} />
+          <Route path='/tableau'  element={<Tableau />} />
+          <Route path='/Pagemodif/:id'  element={<Pagemodif />} />
+        </Routes>
+        
+      </Router>
+    </>
+  )
 }
 
-export default App;
+export default App
